@@ -1,9 +1,9 @@
 import { createContext, useState, useContext } from "react";
 import { LanguageContext } from "./LanguageContext";
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
-export function AuthProvider({ children }) {
+function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const { t } = useContext(LanguageContext);
   const login = () => setUser({ name: t.name });
@@ -16,3 +16,4 @@ export function AuthProvider({ children }) {
   );
 }
 
+export { AuthContext, AuthProvider };
